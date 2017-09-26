@@ -48,5 +48,3 @@ mvn clean install -Dapp.name=THDOnline -Dtags=@Cart,@Checkout,~@MyAccount -Dretr
 - [Selenium Documentation](http://www.seleniumhq.org/docs/ "Selenium Documentation") - General reference for Selenium
 - [JUnit](http://junit.org/junit4/ "JUnit") - A simple, open-source framework to write repeatable unit tests
 - [REST-assured](http://rest-assured.io/ "REST-assured") - An open-source Java DSL for simplifying testing of REST based services built on top of HTTP Builder. 
-- [WireMock](http://wiremock.org/ "WireMock") - WireMock is a simulator for HTTP-based APIs. Some might consider it a service virtualization tool or a mock server.
-- [WireMock Documentation](http://wiremock.org/docs/ "WireMock Documentation") - WireMock User Documentation
