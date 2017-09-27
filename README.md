@@ -33,7 +33,7 @@ Feature: Sample
 <br>
 Example:
 ```sh
-mvn clean install -Dapp.name=THDOnline -Dtags=@Cart,@Checkout,~@MyAccount -Dretry.count=1
+mvn clean install -Dapp.name=Cukes -Dtags=@onescenario
 ```
 
 ##### Supported Browsers
