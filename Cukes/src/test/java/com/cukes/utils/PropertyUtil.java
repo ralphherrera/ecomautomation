@@ -33,7 +33,7 @@ public class PropertyUtil {
 	
 	public static String getTestDataProp(String propKey) {
 		String propertyValue = null;
-		try (FileInputStream inputStream = new FileInputStream(new File("src/test/resources/data/static/config.properties"))) {
+		try (FileInputStream inputStream = new FileInputStream(new File("src/test/resources/data/static/test-data.properties"))) {
 			prop = new Properties();
 			prop.load(inputStream);
 			propertyValue = prop.getProperty(propKey);
