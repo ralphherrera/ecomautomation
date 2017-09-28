@@ -212,10 +212,15 @@ public class WebDriverWrapper {
 	 * Opens the webapp
 	 * @param url - Url of the webapp to be tested
 	 */
-	public void openUrl(String url) {
+	public void getUrl(String url) {
 		log.entry();
-		log.info("Opening URL: {}", url);
-		driver.get(url);
+		try {
+			log.info("Opening URL: {}", url);
+			driver.get(url);
+			isPageLoaded();
+		} catch (Exception e) {
+			log.error("Something went wrong {}", e);
+		}
 		log.exit();
 	}
 }
