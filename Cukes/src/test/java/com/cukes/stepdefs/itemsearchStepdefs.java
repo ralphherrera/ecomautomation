@@ -1,11 +1,17 @@
 package com.cukes.stepdefs;
 
+import com.cukes.pageobjects.HeaderPage;
+
 import cucumber.api.java8.En;
 
 public class itemsearchStepdefs implements En {
 
+	private HeaderPage headerPage;
+
 	public itemsearchStepdefs( ) {
 
+		headerPage = new HeaderPage();
+		
 		Given("^I am on the homepage$", () -> {
 
 		});
