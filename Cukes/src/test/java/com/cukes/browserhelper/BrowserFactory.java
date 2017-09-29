@@ -10,7 +10,7 @@ import cucumber.api.Scenario;
 
 public class BrowserFactory {
 	
-	private static final String EXECUTION_MODE = "execution.mode";
+	private static final String EXECUTION_MODE = PropertyUtil.getConfigProp("execution.mode");
 	private static final Logger log = LogManager.getLogger(BrowserFactory.class);
 	
 	
@@ -22,22 +22,24 @@ public class BrowserFactory {
 		String desiredBrowser = PropertyUtil.getConfigProp("capabilities.browserName");
 		WebDriver driver = null;
 		try {
-			 switch (desiredBrowser) {
-             case "internet explorer":
+			if("Local".equalsIgnoreCase(EXECUTION_MODE)) {
+				switch (desiredBrowser) {
+				case "internet explorer":
 //                 driver = IEBrowser.buildIEBrowser();
-                 break;
-             case "Chrome":
-                 driver = ChromeBrowser.buildChromeBrowser();
-                 break;
-             case "FireFox":
+					break;
+				case "Chrome":
+					driver = ChromeBrowser.buildChromeBrowser();
+					break;
+				case "FireFox":
 //                 driver = FirefoxBrowser.buildFirefoxBrowser();
-                 break;
-             default:
-                 // work out what to do when a browser isn't needed
-                 break;
-         }
+					break;
+				default: driver = null;
+					// work out what to do when a browser isn't needed
+					break;
+				}
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.error("Execution mode is null {}", e);
 		}
 		return driver;
 	}

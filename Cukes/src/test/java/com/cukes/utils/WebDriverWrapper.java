@@ -215,9 +215,13 @@ public class WebDriverWrapper {
 	public void getUrl(String url) {
 		log.entry();
 		try {
-			log.info("Opening URL: {}", url);
-			driver.get(url);
-			isPageLoaded();
+			if(driver != null) {
+				log.info("Opening URL: {}", url);
+				driver.get(url);
+				isPageLoaded();
+			} else {
+				log.error("driver is null");
+			}
 		} catch (Exception e) {
 			log.error("Something went wrong {}", e);
 		}
