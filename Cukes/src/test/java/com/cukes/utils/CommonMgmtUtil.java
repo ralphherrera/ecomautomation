@@ -55,4 +55,17 @@ public class CommonMgmtUtil {
 		implementPollTime(CommonConstants.POLLING_TIME);
 		return Duration.between(now, end);
 	}
+	
+	/**
+	 * Description: Split string
+	 * @param stringToSplit - string value of string to be split
+	 * @param regExp - string value of regular expression
+	 * @return String[]
+	 */
+	public static String[] splitString(String stringToSplit, String regExp) {
+		log.entry();
+		String[] splitString = stringToSplit.split(regExp);
+		log.exit();
+		return splitString;
+	}
 }

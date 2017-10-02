@@ -1,4 +1,4 @@
-@SearchResults @itemsearch @web
+@SampleFeatureUI @samplesearch @web
 Feature: Display Related Items in the search results page
   As a User
   I should be able to search for an item
@@ -10,5 +10,5 @@ Feature: Display Related Items in the search results page
     When I searched for item 'dress'
     Then I should see search results related to the searched keyword
       """
-      Searh results contains 'dress' in the page
+      Search results contains 'dress' in the page
       """
