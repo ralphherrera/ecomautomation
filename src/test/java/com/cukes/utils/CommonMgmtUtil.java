@@ -1,13 +1,18 @@
 package com.cukes.utils;
 
+import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
 import java.time.Instant;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.cukes.bean.Scenario;
 import com.cukes.constants.CommonConstants;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Charsets;
+import com.google.common.io.Resources;
 
 public class CommonMgmtUtil {
 	
@@ -67,5 +72,37 @@ public class CommonMgmtUtil {
 		String[] splitString = stringToSplit.split(regExp);
 		log.exit();
 		return splitString;
+	}
+	
+	/**
+	 * 
+	 */
+	public static String JSONFileToString(String jsonFile) {
+		URL file = Resources.getResource(jsonFile);
+		String jsonString = null;
+
+		try {
+		jsonString = Resources.toString(file, Charsets.UTF_8);
+		} catch (Exception e) {
+		log.error("JSON file not found {}", e);
+		}
+
+		return jsonString;
+	}
+	
+	/**
+	 * 
+	 */
+	public static Scenario getObjectScenario() {
+		Scenario scenario = null;
+		String fileLocation = "";
+		String json = JSONFileToString(fileLocation);
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			scenario = mapper.readValue(json, Scenario.class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return scenario;
 	}
 }
