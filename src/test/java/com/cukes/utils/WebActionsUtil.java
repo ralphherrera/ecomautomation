@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.cukes.bean.TestScenario;
+
 public class WebActionsUtil {
 
 	private static final Logger log = LogManager.getLogger(WebActionsUtil.class);
@@ -149,6 +151,11 @@ public class WebActionsUtil {
 			log.warn("No alert present! {}", e);
 			return false; 
 		}
+	}
+	
+	public static void main(String[] args) {
+		TestScenario ts = CommonMgmtUtil.getObjectScenario("src/test/resources/data/static/amazon.json");
+		System.out.println("ts: " + ts);
 	}
 
 }

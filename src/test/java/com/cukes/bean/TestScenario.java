@@ -2,7 +2,7 @@ package com.cukes.bean;
 
 import java.util.List;
 
-public class Scenario {
+public class TestScenario {
 
 	private boolean execute;
 	private String name;

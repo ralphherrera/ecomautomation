@@ -8,7 +8,7 @@ import java.time.Instant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.cukes.bean.Scenario;
+import com.cukes.bean.TestScenario;
 import com.cukes.constants.CommonConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
@@ -75,31 +75,33 @@ public class CommonMgmtUtil {
 	}
 	
 	/**
-	 * 
+	 * Reads a file and Converts it to string.
+	 * @param filePath - specifies the location of the configuration file
 	 */
-	public static String JSONFileToString(String jsonFile) {
-		URL file = Resources.getResource(jsonFile);
-		String jsonString = null;
+	public static String readFileToString(String filePath) {
+		URL file = Resources.getResource(filePath);
+		String stringFromFile = null;
 
 		try {
-		jsonString = Resources.toString(file, Charsets.UTF_8);
+		stringFromFile = Resources.toString(file, Charsets.UTF_8);
 		} catch (Exception e) {
-		log.error("JSON file not found {}", e);
+		log.error("File not found {}", e);
+		System.out.println("Errors in Errors!");
 		}
 
-		return jsonString;
+		return stringFromFile;
 	}
 	
 	/**
-	 * 
+	 * Parses the config file to its respective object
+	 * @param fileLocation - specifies the location of the configuration file
 	 */
-	public static Scenario getObjectScenario() {
-		Scenario scenario = null;
-		String fileLocation = "";
-		String json = JSONFileToString(fileLocation);
+	public static TestScenario getObjectScenario(String fileLocation) {
+		TestScenario scenario = null;
+		String json = readFileToString(fileLocation);
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			scenario = mapper.readValue(json, Scenario.class);
+			scenario = mapper.readValue(json, TestScenario.class);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

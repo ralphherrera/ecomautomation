@@ -4,7 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
+import com.cukes.bean.TestScenario;
 import com.cukes.browserhelper.BrowserFactory;
+import com.cukes.utils.CommonMgmtUtil;
 import com.cukes.utils.WebDriverWrapper;
 
 import cucumber.api.Scenario;
@@ -16,8 +18,8 @@ public class ScenarioHooks implements En {
 	private static final Logger log = LogManager.getLogger(ScenarioHooks.class);
 
 	public ScenarioHooks() {
-
 		Before(new String[] {"@web"},(Scenario scenario) -> {
+			TestScenario ts = CommonMgmtUtil.getObjectScenario("amazon.json");
 			if (driverWrapper == null) { 
 				log.info("Starting Scenario: " + scenario.getName());
 				try {
