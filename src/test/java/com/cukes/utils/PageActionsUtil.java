@@ -2,7 +2,10 @@ package com.cukes.utils;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.lang.reflect.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,11 +15,14 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.cukes.bean.Step;
 import com.cukes.constants.CommonConstants;
 
 
 
 public class PageActionsUtil {
+	
+	private static Map<String, Method> methodMap = new HashMap<>();;
 
 	private static final Logger log = LogManager.getLogger(PageActionsUtil.class);
 	private static final String MSG_ERROR = "Unable to Complete Action: ";
@@ -27,7 +33,43 @@ public class PageActionsUtil {
 	private PageActionsUtil() {
 		throw new AssertionError();
 	}
-
+	
+	/**
+	 * 
+	 * @param step
+	 */
+	public static void returnAction(String action, WebElement webElement, String inputValue) {
+		log.entry();
+		
+		try {
+			methodMap.get(action).invoke(webElement);
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		log.exit();
+	}
+	
+	/**
+	 * 
+	 * @param step
+	 * @param webElement
+	 */
+	public static void actionMapper(Step step, WebElement webElement) {
+		log.entry();
+		try {
+			methodMap.put("click", PageActionsUtil.class.getMethod("clickButton", WebElement.class));
+		} catch (NoSuchMethodException e) {
+			log.error("No such method {}", e);
+		}
+		log.exit();
+	}
 	
 	/**
      * Wait for Element to disappear on screen
