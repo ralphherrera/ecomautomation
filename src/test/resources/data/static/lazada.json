@@ -1,0 +1,138 @@
+{
+	"scenario": {
+		"name": "User Registration",
+		"gherkins": [
+			{
+				"name": "Given I am in the website homepage",
+				"steps": [
+					{
+						"number": 1,
+						"action": "navigateToPage",
+						"locatorString": null,
+						"locatorType": null,
+						"inputValue": "www.lazada.com.ph"
+					},
+					{
+						"number": 2,
+						"action": "getAttribute",
+						"locatorString": "//img[@class='l-logo__image']",
+						"locatorType": "xpath",
+						"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
+					}
+				]
+			},
+			{
+				"name": "And I navigate on Account Creation Page",
+				"steps": [
+					{
+						"number": 1,
+						"action": "click",
+						"locatorString": "//div[@data-qa-locator='header-signup']//a",
+						"locatorType": "xpath",
+						"inputValue": null
+					},
+					{
+						"number": 2,
+						"action": "findText",
+						"locatorString": "//h2[@class='mbm ui-borderBottom pbs mam']",
+						"locatorType": "xpath",
+						"inputValue": "Create new customer account"
+					}
+				]
+			},
+			{
+				"name": "When I fill up the account creation form",
+				"steps": [
+					{
+						"number": 2,
+						"action": "selectRadioButton",
+						"locatorString": "//span[@id='RegistrationForm_gender']//input[@class='ui-inputRadio']",
+						"locatorType": "xpath",
+						"inputValue": ""
+					},
+					{
+						"number": 2,
+						"action": "sendKeys",
+						"locatorString": "RegistrationForm_email",
+						"locatorType": "id",
+						"inputValue": ""
+					},
+					{
+						"number": 3,
+						"action": "sendKeys",
+						"locatorString": "RegistrationForm_first_name",
+						"locatorType": "id",
+						"inputValue": ""
+					},
+					{
+						"number": 4,
+						"action": "selectValueDropdown",
+						"locatorString": "RegistrationForm_day",
+						"locatorType": "id",
+						"inputValue": ""
+					},
+					{
+						"number": 5,
+						"action": "selectValueDropdown",
+						"locatorString": "RegistrationForm_month",
+						"locatorType": "id",
+						"inputValue": ""
+					},
+					{
+						"number": 6,
+						"action": "selectValueDropdown",
+						"locatorString": "RegistrationForm_year",
+						"locatorType": "id",
+						"inputValue": ""
+					},
+					{
+						"number": 7,
+						"action": "selectValueDropdown",
+						"locatorString": "RegistrationForm_fk_language",
+						"locatorType": "id",
+						"inputValue": "English"
+					},
+					{
+						"number": 8,
+						"action": "sendKeys",
+						"locatorString": "RegistrationForm_password",
+						"locatorType": "id",
+						"inputValue": ""
+					},
+					{
+						"number": 9,
+						"action": "sendKeys",
+						"locatorString": "RegistrationForm_password2",
+						"locatorType": "id",
+						"inputValue": ""
+					}
+				]
+			},
+			{
+				"name": "And I submit the account creation form",
+				"steps": [
+					{
+						"number": 1,
+						"action": "click",
+						"locatorString": "send",
+						"locatorType": "id",
+						"inputValue": null
+					}
+				]
+			},
+			{
+				"name": "Then I should see the account is logged in",
+				"steps": [
+					{
+						"number": 1,
+						"action": "findText",
+						"locatorString": "//li[@class='top-nav__item js-header-logged-in-account']//span[@class='dropdown__toggle-text_style_ellipsis']",
+						"locatorType": "xpath",
+						"inputValue": ""
+					}
+				]
+			}
+		],
+		"execute": true
+	}
+}
