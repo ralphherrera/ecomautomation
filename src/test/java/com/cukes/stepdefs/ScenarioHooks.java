@@ -19,6 +19,7 @@ public class ScenarioHooks implements En {
 
 	public ScenarioHooks() {
 		Before(new String[] {"@web"},(Scenario scenario) -> {
+			System.out.println("Test Scenario Name: " + scenario.getName());
 			TestScenario ts = CommonMgmtUtil.getObjectScenario("amazon.json");
 			if (driverWrapper == null) { 
 				log.info("Starting Scenario: " + scenario.getName());

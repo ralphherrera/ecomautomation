@@ -2,10 +2,13 @@ package com.cukes.bean;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TestScenario {
 
 	private boolean execute;
 	private String name;
+	@JsonProperty(value = "gherkins")
 	private List<Gherkin> gherkins;
 	
 	public boolean isExecute() {

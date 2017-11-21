@@ -2,8 +2,11 @@ package com.cukes.bean;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Gherkin {
 
+	@JsonProperty(value = "steps")
 	private List<Step> steps;
 	private String name;
 
