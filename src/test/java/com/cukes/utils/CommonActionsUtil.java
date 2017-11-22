@@ -16,6 +16,49 @@ public class CommonActionsUtil {
 	 * Private constructor
 	 */
 	private CommonActionsUtil(){}
+	
+	public static void executeAction(String action, WebDriverWrapper driverWrapper, WebElement element, String inputValue) {
+		log.entry();
+		
+		switch (action) {
+		case "navigateToPage":
+			navigateToPage(driverWrapper, inputValue);
+			break;
+		case "findText":
+			isFieldValueExact(element, inputValue);
+			break;
+		case "click":
+			clickButton(driverWrapper, element);
+			break;
+		case "sendKeys":
+			inputValueInField(driverWrapper, element, inputValue);
+			break;
+		/*case "getAttribute":
+			navigateToPage(driverWrapper, inputValue);
+			break;
+		case "selectRadioButton":
+			navigateToPage(driverWrapper, inputValue);
+			break;
+		case "selectValueDropdown":
+			navigateToPage(driverWrapper, inputValue);
+			break;*/
+		default:
+			break;
+		}
+		
+		log.exit();
+	}
+	
+	/**
+	 * 
+	 * @param driverWrapper
+	 * @param url
+	 */
+	public static void navigateToPage(WebDriverWrapper driverWrapper, String url) {
+		log.entry();
+		driverWrapper.getUrl(url);
+		log.exit();
+	} 
 
     /**
    	 * Description: Click the button as specified by the button param

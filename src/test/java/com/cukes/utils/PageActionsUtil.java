@@ -38,11 +38,11 @@ public class PageActionsUtil {
 	 * 
 	 * @param step
 	 */
-	public static void returnAction(String action, WebElement webElement, String inputValue) {
+	public static void returnAction(String action, String inputValue) {
 		log.entry();
 		
 		try {
-			methodMap.get(action).invoke(webElement);
+			methodMap.get(action).invoke(inputValue);
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,6 +55,17 @@ public class PageActionsUtil {
 		}
 		log.exit();
 	}
+	
+	/**
+	 * 
+	 * @param driverWrapper
+	 * @param url
+	 */
+	public static void navigateToPage(WebDriverWrapper driverWrapper, String url) {
+		log.entry();
+		driverWrapper.getUrl(url);
+		log.exit();
+	} 
 	
 	/**
 	 * 

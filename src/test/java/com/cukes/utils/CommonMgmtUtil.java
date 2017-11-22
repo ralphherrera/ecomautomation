@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.cukes.bean.Config;
+import com.cukes.bean.Gherkin;
 import com.cukes.constants.CommonConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
@@ -108,4 +110,20 @@ public class CommonMgmtUtil {
 		return config;
 	}
 	
+	/**
+	 * 
+	 * @param gherkinList
+	 * @param gherkinStep
+	 * @return
+	 */
+	public static Gherkin getGherkin(List<Gherkin> gherkinList, String gherkinStep) {
+		log.entry();
+		for (Gherkin gherkin : gherkinList) {
+			if (gherkin.getName().equalsIgnoreCase(gherkinStep)) {
+				return gherkin;
+			}
+		}
+		log.exit();
+		return null;
+	}
 }
