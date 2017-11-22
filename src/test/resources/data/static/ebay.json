@@ -1,0 +1,105 @@
+{
+	"test Scenarios": [
+		{
+			"name": "User Registration",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "www.ebay.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//h1[@id='gh-l-h1']//a",
+							"locatorType": "xpath",
+							"inputValue": "eBay"
+						}
+					]
+				},
+				{
+					"name": "And I navigate on Account Creation Page",
+					"steps": [
+						{
+							"number": 1,
+							"action": "click",
+							"locatorString": "span #gh-ug-flex a",
+							"locatorType": "css",
+							"inputValue": null
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='regTab']//span[@class='ml51 tx']",
+							"locatorType": "xpath",
+							"inputValue": "Register"
+						}
+					]
+				},
+				{
+					"name": "When I fill up the account creation form",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "firstname",
+							"locatorType": "name",
+							"inputValue": ""
+						},
+						{
+							"number": 2,
+							"action": "sendKeys",
+							"locatorString": "lastname",
+							"locatorType": "name",
+							"inputValue": ""
+						},
+						{
+							"number": 3,
+							"action": "sendKeys",
+							"locatorString": "email",
+							"locatorType": "name",
+							"inputValue": ""
+						},
+						{
+							"number": 4,
+							"action": "sendKeys",
+							"locatorString": "PASSWORD",
+							"locatorType": "name",
+							"inputValue": ""
+						}
+					]
+				},
+				{
+					"name": "And I submit the account creation form",
+					"steps": [
+						{
+							"number": 1,
+							"action": "click",
+							"locatorString": "ppaFormSbtBtn",
+							"locatorType": "id",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see the account is logged in",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//button[@id='gh-ug']//b",
+							"locatorType": "xpath",
+							"inputValue": ""
+						}
+					]
+				}
+			],
+			"execute": true
+		}
+	]
+}

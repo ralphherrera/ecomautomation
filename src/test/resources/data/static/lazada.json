@@ -1,5 +1,5 @@
 {
-	"testScenarios": [
+	"testScenario": [
 		{
 			"name": "User Registration",
 			"gherkins": [

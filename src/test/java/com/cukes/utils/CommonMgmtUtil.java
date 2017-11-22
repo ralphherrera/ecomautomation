@@ -8,7 +8,7 @@ import java.time.Instant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.cukes.bean.TestScenario;
+import com.cukes.bean.Config;
 import com.cukes.constants.CommonConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
@@ -96,16 +96,16 @@ public class CommonMgmtUtil {
 	 * Parses the config file to its respective object
 	 * @param fileLocation - specifies the location of the configuration file
 	 */
-	public static TestScenario getObjectScenario(String fileLocation) {
-		TestScenario scenario = null;
+	public static Config getObjectScenario(String fileLocation) {
+		Config config = null;
 		String json = readFileToString(fileLocation);
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			scenario = mapper.readValue(json, TestScenario.class);
+			config = mapper.readValue(json, Config.class);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return scenario;
+		return config;
 	}
 	
 }
