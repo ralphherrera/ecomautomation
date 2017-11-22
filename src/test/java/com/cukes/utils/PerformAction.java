@@ -28,8 +28,6 @@ public class PerformAction extends BasePage{
 	 * @param gherkinStatement
 	 */
 	public void doAction(String scenarioName, String gherkinStatement) {
-		int stepListSize = stepList.size();
-		
 		for (Gherkin gherkin : gherkinList) {
 			if (scenario.getName().equals(scenarioName) && gherkin.getName().equals(gherkinStatement)) {
 				stepList = gherkin.getStepList();

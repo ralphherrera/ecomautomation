@@ -17,7 +17,7 @@ public class accountcreationStepdefs implements En {
 			TestScenario testScenario) {
 
 		Given("^I am in the website homepage$", () -> {
-			Config config = CommonMgmtUtil.getObjectScenario("data/static/amazon.json");
+			/*Config config = CommonMgmtUtil.getObjectScenario("data/static/amazon.json");
 			List<TestScenario> tsList = config.getTestScenarios();
 			for (TestScenario ts : tsList) {
 				System.out.println("TestScenario: " + ts.getName() +
@@ -28,7 +28,9 @@ public class accountcreationStepdefs implements En {
 					performAction.doAction(scenarioName, gherkinStep);
 					break;
 				}
-			}
+			}*/
+			
+			
 		});
 		
 		And("^I navigate on Account Creation Page$", () -> {
