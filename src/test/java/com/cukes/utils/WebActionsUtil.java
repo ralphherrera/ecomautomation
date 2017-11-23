@@ -1,7 +1,6 @@
 package com.cukes.utils;
 
 import java.time.Instant;
-import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,11 +12,6 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import com.cukes.bean.Config;
-import com.cukes.bean.Gherkin;
-import com.cukes.bean.Step;
-import com.cukes.bean.TestScenario;
 
 public class WebActionsUtil {
 
@@ -156,27 +150,5 @@ public class WebActionsUtil {
 			return false; 
 		}
 	}
-	
-	/*
-	// dummy main method used to test json deserializer
-	 
-	public static void main(String[] args) {
-		Config conf = CommonMgmtUtil.getObjectScenario("data/static/amazon.json");
-		List<TestScenario> tsList = conf.getTestScenarios();
-		for (TestScenario ts : tsList) {
-			System.out.println("ts name: " + ts.getName());
-			System.out.println("gherkin: " + ts.getGherkin());
-			System.out.println("isExecute: " + ts.isExecute());
-			List<Gherkin> ghList = ts.getGherkin();
-			for (Gherkin gh : ghList) {
-				System.out.println("Gherkin Name: " + gh.getName());
-				List<Step> steps = gh.getStepList();
-				for (Step step : steps) {
-					System.out.println("Step Number: " + step.getNumber());
-				}
-			}
-		}
-	}
-	*/
 	
 }

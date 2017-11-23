@@ -28,8 +28,19 @@ public class ScenarioHooks implements En {
 			
 			for (TestScenario ts : tsList) {
 				if (scenario.getName().equals(ts.getName()) && ts.isExecute()) {
-					log.info("Test Scenario Name: " + scenario.getName());
 					testScenarioController.setTestScenario(ts);
+					
+					if (driverWrapper == null) { 
+						log.info("Starting Scenario: " + scenario.getName());
+						try {
+							WebDriver driver = BrowserFactory.getWebDriver(scenario);
+							driver.manage().deleteAllCookies();
+							driver.manage().window().maximize();
+							driverWrapper = new WebDriverWrapper(driver);
+						} catch (Exception e) {
+							log.error("WebDriver initialization failed :: {}", e);
+						}
+					}
 					break;
 				} else {
 					log.info("Scenario, {}, Not Set to Execute", scenario.getName());
@@ -37,21 +48,7 @@ public class ScenarioHooks implements En {
 			}
 		});
 
-		Before(new String[] {"@web"},(Scenario scenario) -> {
-			if (driverWrapper == null) { 
-				log.info("Starting Scenario: " + scenario.getName());
-				try {
-					WebDriver driver = BrowserFactory.getWebDriver(scenario);
-					driver.manage().deleteAllCookies();
-					driver.manage().window().maximize();
-					driverWrapper = new WebDriverWrapper(driver);
-				} catch (Exception e) {
-					log.error("WebDriver initialization failed :: {}", e);
-				}
-			}
-		});
-
-		After(new String[] {"@web"},(Scenario scenario) -> {
+		After(new String[] {"@config"},(Scenario scenario) -> {
 			try {
 				driverWrapper.getDriver().quit();
 				driverWrapper = null;

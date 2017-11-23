@@ -11,7 +11,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.cukes.bean.Config;
 import com.cukes.bean.Gherkin;
+import com.cukes.bean.TestScenario;
 import com.cukes.constants.CommonConstants;
+import com.cukes.controller.TestScenarioController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
@@ -118,12 +120,32 @@ public class CommonMgmtUtil {
 	 */
 	public static Gherkin getGherkin(List<Gherkin> gherkinList, String gherkinStep) {
 		log.entry();
+		String stepName = "";
 		for (Gherkin gherkin : gherkinList) {
 			if (gherkin.getName().equalsIgnoreCase(gherkinStep)) {
+				stepName = gherkin.getName();
+				log.info("Executing step {}", stepName);
 				return gherkin;
-			}
+			} 
 		}
+		log.error("Gherkin step in JSON ({}) does not match with step in Stepdef ({})", stepName, gherkinStep);
 		log.exit();
 		return null;
+	}
+	
+	/***
+	 * 
+	 * @param gherkinStep
+	 */
+	public static void executeSteps(String gherkinStep, TestScenarioController tsc, PerformAction performAction) {
+		log.entry();
+		TestScenario testScenario = tsc.getTestScenario();
+		Gherkin gherkin = CommonMgmtUtil.getGherkin(testScenario.getGherkin(), gherkinStep);
+		String scenarioName = testScenario.getName();
+		
+		if (testScenario.isExecute()) {
+			performAction.doAction(scenarioName, gherkin);
+		}
+		log.exit();
 	}
 }
