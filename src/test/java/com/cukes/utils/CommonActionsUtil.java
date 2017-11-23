@@ -167,7 +167,7 @@ public class CommonActionsUtil {
 		}
 	}
 	
-    /**
+	 /**
    	 * Description: Tick the checkbox
    	 * @param driverWrapper - driver wrapper
    	 * @param target element to be clicked
@@ -175,15 +175,39 @@ public class CommonActionsUtil {
    	public static void tickCheckbox(WebDriverWrapper driverWrapper, WebElement webElement) {
    		try {
    			if (driverWrapper.isElementPresent(webElement)) {
-   				//check if Checkbox is enabled
+   				webElement.click();
+   				//check if Checkbox is selected
    				if (webElement.isSelected()) {
-   					log.debug("Tick checkbox");
-   					webElement.click();
+   					log.debug("Checkbox is selected");
    				} else {
-   					log.error("Checkbox is disabled");
+   					log.error("Checkbox is not selected");
    				}
    			} else {
    				log.warn("Checkbox not found");
+   			}
+   		} catch (Exception e) {
+   			log.error("Unable to Complete Action: ", e);
+   		}
+   	}
+   	
+    /**
+   	 * Description: Select radio button
+   	 * @param driverWrapper - driver wrapper
+   	 * @param target element to be clicked
+   	 */
+   	public static void selectRadioButton(WebDriverWrapper driverWrapper, WebElement webElement) {
+   		try {
+   			if (driverWrapper.isElementPresent(webElement)) {
+   				log.debug("Select Radio button");
+   				webElement.click();
+   				//check if Radio button is enabled
+   				if (webElement.isEnabled() || webElement.isSelected()) {
+   					log.debug("Radio Button is selected.");
+   				} else {
+   					log.error("Radio button is not selected");
+   				}
+   			} else {
+   				log.warn("Radio button is not found");
    			}
    		} catch (Exception e) {
    			log.error("Unable to Complete Action: ", e);
