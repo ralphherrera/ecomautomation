@@ -1,5 +1,5 @@
 {
-	"test Scenarios": [
+	"testScenarios": [
 		{
 			"name": "User Registration",
 			"gherkins": [
@@ -11,7 +11,7 @@
 							"action": "navigateToPage",
 							"locatorString": null,
 							"locatorType": null,
-							"inputValue": "www.ebay.com"
+							"inputValue": "https://www.ebay.com"
 						},
 						{
 							"number": 2,
@@ -95,6 +95,62 @@
 							"locatorString": "//button[@id='gh-ug']//b",
 							"locatorType": "xpath",
 							"inputValue": ""
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "View related search results for keyword",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.ebay.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//h1[@id='gh-l-h1']//a",
+							"locatorType": "xpath",
+							"inputValue": "eBay"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "div[id='gh-ac-box2'] input[id='gh-ac']",
+							"locatorType": "css",
+							"inputValue": "bag"
+						},
+						{
+							"number": 2,
+							"action": "sendKeys",
+							"locatorString": "input[id='gh-btn']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "div[class='clt'] span[class='kwcat'] b",
+							"locatorType": "css",
+							"inputValue": "bag"
 						}
 					]
 				}
