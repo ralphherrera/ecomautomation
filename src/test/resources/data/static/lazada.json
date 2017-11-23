@@ -1,5 +1,5 @@
 {
-	"testScenario": [
+	"testScenarios": [
 		{
 			"name": "User Registration",
 			"gherkins": [
@@ -11,7 +11,7 @@
 							"action": "navigateToPage",
 							"locatorString": null,
 							"locatorType": null,
-							"inputValue": "www.lazada.com.ph"
+							"inputValue": "https://www.lazada.com.ph"
 						},
 						{
 							"number": 2,
@@ -130,6 +130,62 @@
 							"locatorString": "//li[@class='top-nav__item js-header-logged-in-account']//span[@class='dropdown__toggle-text_style_ellipsis']",
 							"locatorType": "xpath",
 							"inputValue": ""
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "View related search results for keyword",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.lazada.com.ph"
+						},
+						{
+							"number": 2,
+							"action": "getAttribute",
+							"locatorString": "//img[@class='l-logo__image']",
+							"locatorType": "xpath",
+							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorType": "css",
+							"inputValue": "bag"
+						},
+						{
+							"number": 2,
+							"action": "sendKeys",
+							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findTextContains",
+							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorType": "css",
+							"inputValue": "bag"
 						}
 					]
 				}
