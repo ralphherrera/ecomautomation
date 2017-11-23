@@ -56,14 +56,14 @@
 							"action": "sendKeys",
 							"locatorString": "RegistrationForm_email",
 							"locatorType": "id",
-							"inputValue": ""
+							"inputValue": "ralf@mail"
 						},
 						{
 							"number": 3,
 							"action": "sendKeys",
 							"locatorString": "RegistrationForm_first_name",
 							"locatorType": "id",
-							"inputValue": ""
+							"inputValue": "Ralf"
 						},
 						{
 							"number": 4,
@@ -98,14 +98,14 @@
 							"action": "sendKeys",
 							"locatorString": "RegistrationForm_password",
 							"locatorType": "id",
-							"inputValue": ""
+							"inputValue": "password123"
 						},
 						{
 							"number": 9,
 							"action": "sendKeys",
 							"locatorString": "RegistrationForm_password2",
 							"locatorType": "id",
-							"inputValue": ""
+							"inputValue": "password123"
 						}
 					]
 				},
@@ -170,7 +170,7 @@
 						},
 						{
 							"number": 2,
-							"action": "sendKeys",
+							"action": "click",
 							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
 							"locatorType": "css",
 							"inputValue": null
@@ -182,7 +182,7 @@
 					"steps": [
 						{
 							"number": 1,
-							"action": "findTextContains",
+							"action": "findText",
 							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
 							"locatorType": "css",
 							"inputValue": "bag"

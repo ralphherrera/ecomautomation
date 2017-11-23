@@ -49,28 +49,28 @@
 							"action": "sendKeys",
 							"locatorString": "firstname",
 							"locatorType": "name",
-							"inputValue": ""
+							"inputValue": "Sarah"
 						},
 						{
 							"number": 2,
 							"action": "sendKeys",
 							"locatorString": "lastname",
 							"locatorType": "name",
-							"inputValue": ""
+							"inputValue": "Abella"
 						},
 						{
 							"number": 3,
 							"action": "sendKeys",
 							"locatorString": "email",
 							"locatorType": "name",
-							"inputValue": ""
+							"inputValue": "sarah.abella@mail.com"
 						},
 						{
 							"number": 4,
 							"action": "sendKeys",
 							"locatorString": "PASSWORD",
 							"locatorType": "name",
-							"inputValue": ""
+							"inputValue": "password!"
 						}
 					]
 				},
@@ -135,7 +135,7 @@
 						},
 						{
 							"number": 2,
-							"action": "sendKeys",
+							"action": "click",
 							"locatorString": "input[id='gh-btn']",
 							"locatorType": "css",
 							"inputValue": null
