@@ -49,21 +49,21 @@
 							"action": "sendKeys",
 							"locatorString": "firstname",
 							"locatorType": "name",
-							"inputValue": "Sarah"
+							"inputValue": "Bianca"
 						},
 						{
 							"number": 2,
 							"action": "sendKeys",
 							"locatorString": "lastname",
 							"locatorType": "name",
-							"inputValue": "Abella"
+							"inputValue": "Herrera"
 						},
 						{
 							"number": 3,
 							"action": "sendKeys",
 							"locatorString": "email",
 							"locatorType": "name",
-							"inputValue": "sarah.abella@mail.com"
+							"inputValue": "bianca.herrera@mail.com"
 						},
 						{
 							"number": 4,

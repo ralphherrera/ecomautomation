@@ -33,15 +33,15 @@ public class CommonActionsUtil {
 		case "sendKeys":
 			inputValueInField(driverWrapper, element, inputValue);
 			break;
-		/*case "getAttribute":
-			navigateToPage(driverWrapper, inputValue);
+		case "getAltText":
+			getAltText(driverWrapper, element, inputValue);
 			break;
 		case "selectRadioButton":
-			navigateToPage(driverWrapper, inputValue);
+			selectRadioButton(driverWrapper, element);
 			break;
 		case "selectValueDropdown":
-			navigateToPage(driverWrapper, inputValue);
-			break;*/
+			selectOptionOnDropdown(element, inputValue);
+			break;
 		default:
 			break;
 		}
@@ -208,6 +208,23 @@ public class CommonActionsUtil {
    				}
    			} else {
    				log.warn("Radio button is not found");
+   			}
+   		} catch (Exception e) {
+   			log.error("Unable to Complete Action: ", e);
+   		}
+   	}
+   	
+   	public static void getAltText(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
+   		try {
+   			if(driverWrapper.isElementPresent(webElement)) {
+   				String altText = webElement.getAttribute("alt");
+   				if(altText.equalsIgnoreCase(inputValue)) {
+   					log.debug("Image found.");
+   				}else {
+   					log.error("Image not found.");
+   				}
+   			}else {
+   				log.error("Element not found.");
    			}
    		} catch (Exception e) {
    			log.error("Unable to Complete Action: ", e);

@@ -15,7 +15,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -49,7 +49,7 @@
 							"action": "selectRadioButton",
 							"locatorString": "//span[@id='RegistrationForm_gender']//input[@class='ui-inputRadio']",
 							"locatorType": "xpath",
-							"inputValue": ""
+							"inputValue": "Male"
 						},
 						{
 							"number": 2,
@@ -70,21 +70,21 @@
 							"action": "selectValueDropdown",
 							"locatorString": "RegistrationForm_day",
 							"locatorType": "id",
-							"inputValue": ""
+							"inputValue": "01"
 						},
 						{
 							"number": 5,
 							"action": "selectValueDropdown",
 							"locatorString": "RegistrationForm_month",
 							"locatorType": "id",
-							"inputValue": ""
+							"inputValue": "April"
 						},
 						{
 							"number": 6,
 							"action": "selectValueDropdown",
 							"locatorString": "RegistrationForm_year",
 							"locatorType": "id",
-							"inputValue": ""
+							"inputValue": "1977"
 						},
 						{
 							"number": 7,
