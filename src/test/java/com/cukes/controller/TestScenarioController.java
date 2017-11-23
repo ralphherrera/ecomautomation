@@ -5,10 +5,11 @@ import java.util.List;
 import com.cukes.bean.Config;
 import com.cukes.bean.TestScenario;
 import com.cukes.utils.CommonMgmtUtil;
+import com.cukes.utils.PropertyUtil;
 
 public class TestScenarioController {
 	
-	private Config conf = CommonMgmtUtil.getObjectScenario("data/static/amazon.json");
+	private Config conf = CommonMgmtUtil.getObjectScenario(PropertyUtil.getConfigProp("test.json"));
 	private TestScenario testScenario;
 	
 	public List<TestScenario> getScenarioList() {
