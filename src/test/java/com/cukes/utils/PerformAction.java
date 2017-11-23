@@ -14,7 +14,6 @@ import com.cukes.pageobjects.BasePage;
 public class PerformAction extends BasePage{
 	
 	private List<Step> stepList;
-	
 	private static final Logger log = LogManager.getLogger(PerformAction.class);
 	
 	/***
@@ -28,10 +27,10 @@ public class PerformAction extends BasePage{
 		log.info("Executing Step: {}", gherkin.getName());
 		
 		for (Step step : stepList) {
-			log.info("Executing Step #: {}", step.getNumber());
 			WebElement element = getWebElement(step.getLocatorString(), step.getLocatorType());
 			String action = step.getAction();
 			String inputValue = step.getInputValue();
+			log.info("Executing Step #: {} : {}", step.getNumber(), action);
 			CommonActionsUtil.executeAction(action, driverWrapper, element, inputValue);
 		}
 		log.exit();
@@ -47,9 +46,8 @@ public class PerformAction extends BasePage{
 		log.entry();
 		WebElement element = null;
 		if (!(locatorString == null && locatorType == null)) {
-			String test = locatorType.toLowerCase();
-			log.info("RALPH {}", test);
-			switch(test) {
+			String locType = locatorType.toLowerCase();
+			switch(locType) {
 			case "id" : return driver.findElement(By.id(locatorString));
 			case "name" : return driver.findElement(By.name(locatorString));
 			case "css" : return driver.findElement(By.cssSelector(locatorString));
