@@ -1,6 +1,5 @@
 package com.cukes.utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -12,13 +11,9 @@ import com.cukes.bean.Gherkin;
 import com.cukes.bean.Step;
 import com.cukes.pageobjects.BasePage;
 
-import cucumber.api.Scenario;
-
 public class PerformAction extends BasePage{
 	
-	private Scenario scenario;
 	private List<Step> stepList;
-	private ArrayList<Gherkin> gherkinList;
 	
 	private static final Logger log = LogManager.getLogger(PerformAction.class);
 	
@@ -27,20 +22,19 @@ public class PerformAction extends BasePage{
 	 * @param scenarioName
 	 * @param gherkinStatement
 	 */
-	public void doAction(String scenarioName, String gherkinStatement) {
-		for (Gherkin gherkin : gherkinList) {
-			if (scenario.getName().equals(scenarioName) && gherkin.getName().equals(gherkinStatement)) {
-				stepList = gherkin.getStepList();
-				for (Step step : stepList) {
-					WebElement element = getWebElement(step.getLocatorString(), step.getLocatorType());
-					String action = step.getAction();
-					String inputValue = step.getInputValue();
-					PageActionsUtil.returnAction(action, element, inputValue);
-				}
-			}else {
-				log.error("Scenario / Gherkin does not match");
-			}
+	public void doAction(String scenarioName, Gherkin gherkin) {
+		log.entry();
+		stepList = gherkin.getStepList();
+		log.info("Executing Step: {}", gherkin.getName());
+		
+		for (Step step : stepList) {
+			log.info("Executing Step #: {}", step.getNumber());
+			WebElement element = getWebElement(step.getLocatorString(), step.getLocatorType());
+			String action = step.getAction();
+			String inputValue = step.getInputValue();
+			CommonActionsUtil.executeAction(action, driverWrapper, element, inputValue);
 		}
+		log.exit();
 	}
 	
 	/**
@@ -50,13 +44,19 @@ public class PerformAction extends BasePage{
 	 * @return
 	 */
 	private WebElement getWebElement(String locatorString, String locatorType) {
+		log.entry();
 		WebElement element = null;
-		switch(locatorType.toLowerCase()) {
-		case "id" : return driver.findElement(By.id(locatorString));
-		case "name" : return driver.findElement(By.name(locatorString));
-		case "css" : return driver.findElement(By.cssSelector(locatorString));
-		case "xpath" : return driver.findElement(By.xpath(locatorString));
-		}
+		if (!(locatorString == null && locatorType == null)) {
+			String test = locatorType.toLowerCase();
+			log.info("RALPH {}", test);
+			switch(test) {
+			case "id" : return driver.findElement(By.id(locatorString));
+			case "name" : return driver.findElement(By.name(locatorString));
+			case "css" : return driver.findElement(By.cssSelector(locatorString));
+			case "xpath" : return driver.findElement(By.xpath(locatorString));
+			}
+		} 
+		log.exit();
 		return element;
 	}
 }

@@ -6,10 +6,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
-import com.cukes.bean.Config;
 import com.cukes.bean.TestScenario;
 import com.cukes.browserhelper.BrowserFactory;
-import com.cukes.utils.CommonMgmtUtil;
+import com.cukes.controller.TestScenarioController;
 import com.cukes.utils.WebDriverWrapper;
 
 import cucumber.api.Scenario;
@@ -17,29 +16,26 @@ import cucumber.api.java8.En;
 
 public class ScenarioHooks implements En {
 
-	private Config conf;
-	List<TestScenario> tsList;
 	private WebDriverWrapper driverWrapper;
 	private static final Logger log = LogManager.getLogger(ScenarioHooks.class);
-
-	public ScenarioHooks() {
+	
+	List<TestScenario> tsList = null;
+	
+	public ScenarioHooks(TestScenarioController testScenarioController) {
 
 		Before(new String[] {"@config"},(Scenario scenario) -> {
-			conf = CommonMgmtUtil.getObjectScenario("data/static/amazon.json");
-			tsList = conf.getTestScenarios();
-//			for (TestScenario ts : tsList) {
-//				if (scenario.getName().equals(ts.getName()) && ts.isExecute()) {
-//					System.out.println("Test Scenario Name: " + scenario.getName());
-//					if (driverWrapper == null) { 
-//						log.info("Starting Scenario: " + scenario.getName());
-//					}
-//					break;
-//				} else {
-//					log.info("Scenario, {}, Not Set to Execute", scenario.getName());
-//				}
-//			}
+			tsList = testScenarioController.getScenarioList();
+			
+			for (TestScenario ts : tsList) {
+				if (scenario.getName().equals(ts.getName()) && ts.isExecute()) {
+					log.info("Test Scenario Name: " + scenario.getName());
+					testScenarioController.setTestScenario(ts);
+					break;
+				} else {
+					log.info("Scenario, {}, Not Set to Execute", scenario.getName());
+				}
+			}
 		});
-
 
 		Before(new String[] {"@web"},(Scenario scenario) -> {
 			if (driverWrapper == null) { 
