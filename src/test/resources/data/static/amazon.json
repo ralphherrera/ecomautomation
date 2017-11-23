@@ -109,7 +109,7 @@
 			"execute": true
 		},
 		{
-			"name": "Search Item",
+			"name": "View related search results for keyword",
 			"gherkins": [
 				{
 					"name": "Given I am in the website homepage",
