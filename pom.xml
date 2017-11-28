@@ -86,6 +86,23 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.9.2</version>
 		</dependency>
+		<!-- for reports -->
+		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>cucumber-extentsreport</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.0.7</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -131,9 +148,18 @@
 							<glue>
 								<package>com.cukes.stepdefs</package>
 							</glue>
-							<outputDirectory>${project.build.directory}/generated-test-sources/features</outputDirectory>
-							<featuresDirectory>src/test/resources/features/</featuresDirectory>
-							<cucumberOutputDir>${project.build.directory}/test_reports/results</cucumberOutputDir>
+							<plugins>
+								<plugin>
+									<name>com.cucumber.listener.ExtentCucumberFormatter</name>
+									<extension>html</extension>
+								</plugin>
+							</plugins>
+							<customVmTemplate>
+								src/test/resources/cucumber-extents-report-runner.java.vm
+							</customVmTemplate>
+							<outputDirectory>target/generated-test-sources/features</outputDirectory>
+							<featuresDirectory>src/test/resources/features</featuresDirectory>
+							<cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
 							<format>json</format>
 							<strict>true</strict>
 							<monochrome>true</monochrome>

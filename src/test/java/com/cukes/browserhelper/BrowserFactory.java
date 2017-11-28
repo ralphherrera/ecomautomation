@@ -1,8 +1,13 @@
 package com.cukes.browserhelper;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.cukes.utils.PropertyUtil;
 
@@ -36,6 +41,28 @@ public class BrowserFactory {
 				default: driver = null;
 					// work out what to do when a browser isn't needed
 					break;
+				}
+			} else if("Grid".equalsIgnoreCase(EXECUTION_MODE)) {
+				DesiredCapabilities capabilities = null;
+				
+				switch (desiredBrowser) {
+				case "internet explorer":
+					capabilities = DesiredCapabilities.internetExplorer();
+					break;
+				case "Chrome":
+					capabilities = DesiredCapabilities.chrome();
+					break;
+				case "FireFox":
+					capabilities = DesiredCapabilities.firefox();
+				default: driver = null;
+					// work out what to do when a browser isn't needed
+					break;
+				}
+				
+	        	try {
+					driver = new RemoteWebDriver(new URL("http://172.16.220.108:3023/wd/hub"), capabilities);
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
 				}
 			}
 		} catch (Exception e) {

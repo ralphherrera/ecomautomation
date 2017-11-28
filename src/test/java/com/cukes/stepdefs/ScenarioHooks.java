@@ -36,7 +36,7 @@ public class ScenarioHooks implements En {
 							WebDriver driver = BrowserFactory.getWebDriver(scenario);
 							driver.manage().deleteAllCookies();
 							driver.manage().window().maximize();
-							driverWrapper = new WebDriverWrapper(driver);
+							driverWrapper = new WebDriverWrapper(driver, scenario);
 						} catch (Exception e) {
 							log.error("WebDriver initialization failed :: {}", e);
 						}

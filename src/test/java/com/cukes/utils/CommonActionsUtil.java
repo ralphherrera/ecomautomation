@@ -25,7 +25,7 @@ public class CommonActionsUtil {
 			navigateToPage(driverWrapper, inputValue);
 			break;
 		case "findText":
-			isFieldValueExact(element, inputValue);
+			isFieldValueExact(driverWrapper, element, inputValue);
 			break;
 		case "click":
 			clickButton(driverWrapper, element);
@@ -40,7 +40,7 @@ public class CommonActionsUtil {
 			selectRadioButton(driverWrapper, element);
 			break;
 		case "selectValueDropdown":
-			selectOptionOnDropdown(element, inputValue);
+			selectOptionOnDropdown(driverWrapper, element, inputValue);
 			break;
 		default:
 			break;
@@ -71,6 +71,7 @@ public class CommonActionsUtil {
    				//check if button is enabled
    				if (target.isEnabled()) {
    					log.debug("Clicking button");
+   					driverWrapper.embedScreenshotWithHighlight(target);
    					target.click();
    				} else {
    					log.error("Button is disabled");
@@ -99,7 +100,7 @@ public class CommonActionsUtil {
      * @param valueToBeChosen
      * @param element
      */
-    public static void selectOptionOnDropdown(WebElement webElement, String valueToBeChosen) {
+    public static void selectOptionOnDropdown(WebDriverWrapper driverWrapper, WebElement webElement, String valueToBeChosen) {
         log.entry();
         String value;
         Select select = new Select(webElement);
@@ -111,6 +112,7 @@ public class CommonActionsUtil {
             value = optionsCount.next().getText().trim();
             if (value.equals(valueToBeChosen.trim())) {
                 selectValue(webElement, value);
+                driverWrapper.embedScreenshotWithHighlight(webElement);
                 log.info("{} is selected", valueToBeChosen);
                 log.exit();
                 return;
@@ -126,13 +128,14 @@ public class CommonActionsUtil {
 	 * @param expectedValue
 	 * @return boolean
 	 */
-	public static boolean isFieldValueExact(WebElement webElement, String expectedValue) {
+	public static boolean isFieldValueExact(WebDriverWrapper driverWrapper, WebElement webElement, String expectedValue) {
 		log.entry();
 		log.info("Verify the value");
 		String actual = webElement.getText();
 		log.info("Expected {}", expectedValue);
 		log.info("Actual {}", actual);
 		if (actual.equalsIgnoreCase(expectedValue)) {
+			driverWrapper.embedScreenshotWithHighlight(webElement);
 			log.info("{} matches the expected {} value.", actual, expectedValue);
 			return true;
 		}
@@ -156,6 +159,7 @@ public class CommonActionsUtil {
 					webElement.clear();
 					log.info("Enter [{}] in field", inputValue);
 					webElement.sendKeys(inputValue);
+					driverWrapper.embedScreenshotWithHighlight(webElement);
 				} else {
 					log.error("Field is Disabled");
 				}
@@ -178,6 +182,7 @@ public class CommonActionsUtil {
    				webElement.click();
    				//check if Checkbox is selected
    				if (webElement.isSelected()) {
+   					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Checkbox is selected");
    				} else {
    					log.error("Checkbox is not selected");
@@ -202,6 +207,7 @@ public class CommonActionsUtil {
    				webElement.click();
    				//check if Radio button is enabled
    				if (webElement.isEnabled() || webElement.isSelected()) {
+   					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Radio Button is selected.");
    				} else {
    					log.error("Radio button is not selected");
@@ -219,6 +225,7 @@ public class CommonActionsUtil {
    			if(driverWrapper.isElementPresent(webElement)) {
    				String altText = webElement.getAttribute("alt");
    				if(altText.equalsIgnoreCase(inputValue)) {
+   					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Image found.");
    				}else {
    					log.error("Image not found.");
