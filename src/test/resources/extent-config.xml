@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extentreports>
+    <configuration>
+        <encoding>UTF-8</encoding>
+        <documentTitle>ECommerce Automation - v1.0.0</documentTitle>
+        <reportName>
+        <image id="image-zoom">
+		 <img src='C:/CATS/logo.png' />
+	</image>
+        ECommerce Automation</reportName>
+        <reportHeadline> - v1.0.0</reportHeadline>
+    </configuration>
+</extentreports>

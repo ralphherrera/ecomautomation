@@ -1,30 +1,45 @@
 package com.cukes.utils;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.cucumber.listener.Reporter;
 import com.cukes.constants.CommonConstants;
+
+import cucumber.api.Scenario;
 
 public class WebDriverWrapper {
 
-	private final WebDriver driver;
+	private static WebDriver driver;
 	private static final String TEXT_COMPLETE = "complete";
 	private static final Logger log = LogManager.getLogger(WebDriverWrapper.class);
+	private final Scenario scenario;
 
-	public WebDriverWrapper(WebDriver driver) {
+	public WebDriverWrapper(WebDriver driver, Scenario scenario) {
 		this.driver = driver;
+		this.scenario = scenario;
 	}
 
 	public WebDriver getDriver() {
 		return driver;
+	}
+	
+	public Scenario getScenario() {
+		return scenario;
 	}
 
 	/**
@@ -226,5 +241,39 @@ public class WebDriverWrapper {
 			log.error("Something went wrong {}", e);
 		}
 		log.exit();
+	}
+	
+	/**
+     * Highlight Element
+     * @param webElement
+     */
+	public static void highlightElement(WebElement webElement) {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].style.border='2px solid red'", webElement);
+		} catch (Exception e) {
+			log.error("Something went wrong {}", e);
+		}
+	}
+	
+	/**
+     * Embed screenshot with multiple highlight to the html report
+     * @param scenario
+     * @return String
+     */
+	public void embedScreenshotWithHighlight(WebElement element) {
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		String outPath = System.getProperty("user.dir") + "\\target\\screenshots\\" + scenario.getId().split(";")[0] + "\\" + scenario.getName().replaceAll("\\s", "_") + "_" + timeStamp + ".png";
+		try {
+			highlightElement(element);
+			File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scrFile, new File(outPath).getAbsoluteFile());
+			Reporter.addScreenCaptureFromPath(outPath);
+//			for (WebElement webElement : element) {
+//				WebActionsUtil.removeHighlightedElement(webElement, driver);
+//			}
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 	}
 }
