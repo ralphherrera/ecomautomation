@@ -257,6 +257,19 @@ public class WebDriverWrapper {
 	}
 	
 	/**
+     * Remove highlight element
+     * @param webElement
+     */
+	public static void removeHighlightedElement(WebElement webElement) {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].style.border='none'", webElement);
+		} catch (Exception e) {
+			log.error("Something went wrong {}", e);
+		}
+	}
+	
+	/**
      * Embed screenshot with multiple highlight to the html report
      * @param scenario
      * @return String
@@ -269,9 +282,7 @@ public class WebDriverWrapper {
 			File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scrFile, new File(outPath).getAbsoluteFile());
 			Reporter.addScreenCaptureFromPath(outPath);
-//			for (WebElement webElement : element) {
-//				WebActionsUtil.removeHighlightedElement(webElement, driver);
-//			}
+			removeHighlightedElement(element);
         } catch (Throwable e) {
             e.printStackTrace();
         }
