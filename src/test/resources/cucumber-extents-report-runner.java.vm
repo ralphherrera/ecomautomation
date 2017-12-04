@@ -9,8 +9,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
-import com.cucumber.listener.ExtentProperties;
-import com.cucumber.listener.Reporter;
+import com.cukes.advancedreport.ExtentProperties;
+import com.cukes.advancedreport.Reporter;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

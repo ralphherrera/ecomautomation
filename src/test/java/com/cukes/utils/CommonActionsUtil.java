@@ -42,6 +42,8 @@ public class CommonActionsUtil {
 		case "selectValueDropdown":
 			selectOptionOnDropdown(driverWrapper, element, inputValue);
 			break;
+		case "getValueText":
+			getValueText(driverWrapper, element, inputValue);
 		default:
 			break;
 		}
@@ -220,6 +222,12 @@ public class CommonActionsUtil {
    		}
    	}
    	
+    /**
+   	 * Description: Get text value of attribute "alt"
+   	 * @param driverWrapper - driver wrapper
+   	 * @param webElement element to be clicked
+   	 * @param inputValue
+   	 */
    	public static void getAltText(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
    		try {
    			if(driverWrapper.isElementPresent(webElement)) {
@@ -229,6 +237,30 @@ public class CommonActionsUtil {
    					log.debug("Image found.");
    				}else {
    					log.error("Image not found.");
+   				}
+   			}else {
+   				log.error("Element not found.");
+   			}
+   		} catch (Exception e) {
+   			log.error("Unable to Complete Action: ", e);
+   		}
+   	}
+   	
+    /**
+   	 * Description: Get text value of attribute "value"
+   	 * @param driverWrapper - driver wrapper
+   	 * @param webElement element to be clicked
+   	 * @param inputValue
+   	 */
+   	public static void getValueText(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
+   		try {
+   			if(driverWrapper.isElementPresent(webElement)) {
+   				String altText = webElement.getAttribute("value");
+   				if(altText.equalsIgnoreCase(inputValue)) {
+   					driverWrapper.embedScreenshotWithHighlight(webElement);
+   					log.debug("Text found.");
+   				}else {
+   					log.error("Text not found.");
    				}
    			}else {
    				log.error("Element not found.");

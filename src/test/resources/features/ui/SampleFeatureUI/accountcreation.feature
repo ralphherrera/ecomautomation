@@ -4,7 +4,7 @@ Feature: Account Creation
   I should be able to create an account
   So that I can shop maximize the shop's features and shop effortlessly
 
-	@config
+@config
   Scenario: User Registration
     Given I am in the website homepage
     And I navigate on Account Creation Page
