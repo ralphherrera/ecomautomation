@@ -17,7 +17,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.cucumber.listener.Reporter;
+import com.cukes.advancedreport.Reporter;
 import com.cukes.constants.CommonConstants;
 
 import cucumber.api.Scenario;
