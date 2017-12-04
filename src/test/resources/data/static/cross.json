@@ -157,7 +157,7 @@
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='no-mobile'] label svg",
+							"locatorString": "div[class='no-mobile'] label",
 							"locatorType": "css",
 							"inputValue": null
 						}
