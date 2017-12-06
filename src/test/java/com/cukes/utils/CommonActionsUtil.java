@@ -82,7 +82,7 @@ public class CommonActionsUtil {
    				log.warn("Button not found");
    			}
    		} catch (Exception e) {
-   			log.error("Unable to Complete Action: ", e);
+   			embedScreenshotOnError(driverWrapper, target, e);
    		}
    	}
    	
@@ -93,8 +93,13 @@ public class CommonActionsUtil {
      */
     public static void selectValue(WebElement webElement, String valueToBeChosen) {
     	log.info("Select by visible text: {}", valueToBeChosen);
-        Select actualSelect = new Select(webElement);
-        actualSelect.selectByVisibleText(valueToBeChosen);
+    	try {
+    		Select actualSelect = new Select(webElement);
+    		actualSelect.selectByVisibleText(valueToBeChosen);
+    	} catch (Exception e) {
+    		//TODO: insert proper statement here
+//    		embedScreenshotOnError(driverWrapper, target, e);
+    	}
     }
    	
     /**
@@ -104,24 +109,28 @@ public class CommonActionsUtil {
      */
     public static void selectOptionOnDropdown(WebDriverWrapper driverWrapper, WebElement webElement, String valueToBeChosen) {
         log.entry();
-        String value;
-        Select select = new Select(webElement);
-        List<WebElement> options = select.getOptions();
-        Iterator<WebElement> optionsCount = options.iterator();
-
         log.info("Select : {}", valueToBeChosen);
-        while (optionsCount.hasNext()) {
-            value = optionsCount.next().getText().trim();
-            if (value.equals(valueToBeChosen.trim())) {
-                selectValue(webElement, value);
-                driverWrapper.embedScreenshotWithHighlight(webElement);
-                log.info("{} is selected", valueToBeChosen);
-                log.exit();
-                return;
-            }
+        String value;
+        try {
+        	Select select = new Select(webElement);
+        	List<WebElement> options = select.getOptions();
+        	Iterator<WebElement> optionsCount = options.iterator();
+        	while (optionsCount.hasNext()) {
+        		value = optionsCount.next().getText().trim();
+        		if (value.equals(valueToBeChosen.trim())) {
+        			selectValue(webElement, value);
+        			driverWrapper.embedScreenshotWithHighlight(webElement);
+        			log.info("{} is selected", valueToBeChosen);
+        			log.exit();
+        			return;
+        		}
+        	}
+        } catch (Exception e) {
+        	log.warn("Option to be selected is not available!");
+        	embedScreenshotOnError(driverWrapper, webElement, e);
+        	log.exit();
         }
-        log.warn("Option to be selected is not available!");
-        log.exit();
+
     }
     
     /**
@@ -133,16 +142,21 @@ public class CommonActionsUtil {
 	public static boolean isFieldValueExact(WebDriverWrapper driverWrapper, WebElement webElement, String expectedValue) {
 		log.entry();
 		log.info("Verify the value");
-		String actual = webElement.getText();
-		log.info("Expected {}", expectedValue);
-		log.info("Actual {}", actual);
-		if (actual.equalsIgnoreCase(expectedValue)) {
-			driverWrapper.embedScreenshotWithHighlight(webElement);
-			log.info("{} matches the expected {} value.", actual, expectedValue);
-			return true;
+		try {
+			String actual = webElement.getText();
+			log.info("Expected {}", expectedValue);
+			log.info("Actual {}", actual);
+			if (actual.equalsIgnoreCase(expectedValue)) {
+				driverWrapper.embedScreenshotWithHighlight(webElement);
+				log.info("{} matches the expected {} value.", actual, expectedValue);
+				return true;
+			} else {
+				log.info("{} value is NOT equal to the expected {} value.", actual, expectedValue);
+				return false;
+			}
+		} catch (Exception e) {
+			embedScreenshotOnError(driverWrapper, webElement, e);
 		}
-		log.info("{} value is NOT equal to the expected {} value.", actual, expectedValue);
-		log.exit();
 		return false;
 	}
 	
@@ -169,7 +183,7 @@ public class CommonActionsUtil {
 				log.error("Unable to locate field element");
 			}
 		} catch (Exception e) {
-			log.error("Unable to Complete Action: ", e);
+			embedScreenshotOnError(driverWrapper, webElement, e);
 		}
 	}
 	
@@ -193,7 +207,7 @@ public class CommonActionsUtil {
    				log.warn("Checkbox not found");
    			}
    		} catch (Exception e) {
-   			log.error("Unable to Complete Action: ", e);
+   			embedScreenshotOnError(driverWrapper, webElement, e);
    		}
    	}
    	
@@ -218,7 +232,7 @@ public class CommonActionsUtil {
    				log.warn("Radio button is not found");
    			}
    		} catch (Exception e) {
-   			log.error("Unable to Complete Action: ", e);
+   			embedScreenshotOnError(driverWrapper, webElement, e);
    		}
    	}
    	
@@ -242,7 +256,7 @@ public class CommonActionsUtil {
    				log.error("Element not found.");
    			}
    		} catch (Exception e) {
-   			log.error("Unable to Complete Action: ", e);
+   			embedScreenshotOnError(driverWrapper, webElement, e);
    		}
    	}
    	
@@ -266,7 +280,17 @@ public class CommonActionsUtil {
    				log.error("Element not found.");
    			}
    		} catch (Exception e) {
-   			log.error("Unable to Complete Action: ", e);
+   			embedScreenshotOnError(driverWrapper, webElement, e);
    		}
+   	}
+   	
+   	/**
+   	 * Take a screenshot when automation encounters an error
+   	 * @param driverWrapper
+   	 * @param webElement
+   	 */
+   	private static void embedScreenshotOnError(WebDriverWrapper driverWrapper, WebElement webElement, Exception e) {
+   		driverWrapper.embedScreenshotWithHighlight(webElement);
+   		log.error("Unable to Complete Action: ", e);
    	}
 }
