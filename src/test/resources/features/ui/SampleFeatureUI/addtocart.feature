@@ -4,18 +4,27 @@ Feature: Display Related Items in the search results page
   I should be able to search for an item
   So that I can view related items in the search results page
 
-	@config
-  Scenario: View related search results for keyword
+  Scenario: Verify User is able to add items to cart
      Given I am in the website homepage
      When I searched for an item
      Then I should see relevant items displayed
     
-   Scenario: Verify User is able to search for a product
+   Scenario: Verify User is able to remove items from cart
      Given I am in the website homepage
      When I searched for an item
      Then I should see relevant items displayed
     
-   Scenario: Verify System shows an error message if a product is not found
+   Scenario: Verify User is able to update item quantity in cart
+     Given I am in the website homepage
+     When I searched for an item
+     Then I should see relevant items displayed
+     
+   Scenario: Verify User is able to check item details for items in cart
+     Given I am in the website homepage
+     When I searched for an item
+     Then I should see relevant items displayed
+     
+   Scenario: Verify User is able to apply promos in cart
      Given I am in the website homepage
      When I searched for an item
      Then I should see relevant items displayed
