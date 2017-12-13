@@ -10,6 +10,7 @@ public enum ExtentProperties {
     private String reportPath;
     private String extentXServerUrl;
     private String projectName;
+    private String reportName;
 
     ExtentProperties() {
         this.reportPath = "output" + File.separator + "Run_" + System.currentTimeMillis() + File.separator
@@ -64,4 +65,20 @@ public enum ExtentProperties {
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
+
+	/**
+	 * Get the report name
+	 * @return the report name
+	 */
+    public String getReportName() {
+		return reportName;
+	}
+
+	/**
+	 * Set the report name
+	 * @param reportName
+	 */
+    public void setReportName(String reportName) {
+		this.reportName = reportName;
+	}
 }

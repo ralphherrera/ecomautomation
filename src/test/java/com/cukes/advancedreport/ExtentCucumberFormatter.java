@@ -81,6 +81,7 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
 				System.out.println("Set the MongoDB Connection...");
 				kloReporter.initMongoDbConnection("172.16.220.108");
 				kloReporter.setProjectName(extentProperties.getProjectName());
+				kloReporter.setReportName(extentProperties.getReportName());
 				kloReporter.setKlovUrl("http://172.16.220.108:1337");
 				extentReports.attachReporter(htmlReporter, kloReporter);
 				System.out.println("ExtentReports Detail: " + extentReports);

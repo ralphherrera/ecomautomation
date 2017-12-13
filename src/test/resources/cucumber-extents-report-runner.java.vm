@@ -15,6 +15,9 @@ import com.cukes.advancedreport.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @RunWith(Cucumber.class)
 @CucumberOptions(
         strict = $strict,
@@ -28,11 +31,17 @@ import cucumber.api.junit.Cucumber;
         glue = #stringArray($glue))
 public class $className {
 	
+	static String featureName = "$featureFile".substring("$featureFile".lastIndexOf("/") + 1, "$featureFile".indexOf(".feature"));
+	
 	@BeforeClass
 	public static void beforeClasses() {
 		System.out.println("Setting up the report properties.");
+		LocalDateTime localDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String formatDateTime = localDateTime.format(formatter);
 		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-		extentProperties.setProjectName("ECommerce Automation");
+		extentProperties.setProjectName("Test2");
+		extentProperties.setReportName(featureName + " " + formatDateTime);
 		extentProperties.setExtentXServerUrl("http://172.16.220.108:1337");
 	}
 	
