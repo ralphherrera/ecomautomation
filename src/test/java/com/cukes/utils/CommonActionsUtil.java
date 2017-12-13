@@ -17,38 +17,29 @@ public class CommonActionsUtil {
 	 */
 	private CommonActionsUtil(){}
 	
-	public static void executeAction(String action, WebDriverWrapper driverWrapper, WebElement element, String inputValue) {
+	public static boolean executeAction(String action, WebDriverWrapper driverWrapper, WebElement element, String inputValue) {
 		log.entry();
 		
 		switch (action) {
 		case "navigateToPage":
-			navigateToPage(driverWrapper, inputValue);
-			break;
+			return navigateToPage(driverWrapper, inputValue);
 		case "findText":
-			isFieldValueExact(driverWrapper, element, inputValue);
-			break;
+			return isFieldValueExact(driverWrapper, element, inputValue);
 		case "click":
-			clickButton(driverWrapper, element);
-			break;
+			return clickButton(driverWrapper, element);
 		case "sendKeys":
-			inputValueInField(driverWrapper, element, inputValue);
-			break;
+			return inputValueInField(driverWrapper, element, inputValue);
 		case "getAltText":
-			getAltText(driverWrapper, element, inputValue);
-			break;
+			return getAltText(driverWrapper, element, inputValue);
 		case "selectRadioButton":
-			selectRadioButton(driverWrapper, element);
-			break;
+			return selectRadioButton(driverWrapper, element);
 		case "selectValueDropdown":
-			selectOptionOnDropdown(driverWrapper, element, inputValue);
-			break;
+			return selectOptionOnDropdown(driverWrapper, element, inputValue);
 		case "getValueText":
-			getValueText(driverWrapper, element, inputValue);
+			return getValueText(driverWrapper, element, inputValue);
 		default:
-			break;
+			return false;
 		}
-		
-		log.exit();
 	}
 	
 	/**
@@ -56,10 +47,15 @@ public class CommonActionsUtil {
 	 * @param driverWrapper
 	 * @param url
 	 */
-	public static void navigateToPage(WebDriverWrapper driverWrapper, String url) {
+	public static boolean navigateToPage(WebDriverWrapper driverWrapper, String url) {
 		log.entry();
-		driverWrapper.getUrl(url);
-		log.exit();
+		try {
+			driverWrapper.getUrl(url);
+			return true;
+		} catch (Exception e) {
+			log.error ("Unable to navigate to url: ", e);
+			return false;
+		}
 	} 
 
     /**
@@ -67,7 +63,7 @@ public class CommonActionsUtil {
    	 * @param driverWrapper - driver wrapper
    	 * @param target element to be clicked
    	 */
-   	public static void clickButton(WebDriverWrapper driverWrapper, WebElement target) {
+   	public static boolean clickButton(WebDriverWrapper driverWrapper, WebElement target) {
    		try {
    			if (driverWrapper.isElementPresent(target)) {
    				//check if button is enabled
@@ -75,14 +71,19 @@ public class CommonActionsUtil {
    					log.debug("Clicking button");
    					driverWrapper.embedScreenshotWithHighlight(target);
    					target.click();
+   					return true;
    				} else {
    					log.error("Button is disabled");
+   					return false;
    				}
    			} else {
    				log.warn("Button not found");
+   				return false;
    			}
    		} catch (Exception e) {
+   			log.info("Calling Exception Method in click button");
    			embedScreenshotOnError(driverWrapper, target, e);
+   			return false;
    		}
    	}
    	
@@ -98,7 +99,7 @@ public class CommonActionsUtil {
     		actualSelect.selectByVisibleText(valueToBeChosen);
     	} catch (Exception e) {
     		//TODO: insert proper statement here
-//    		embedScreenshotOnError(driverWrapper, target, e);
+    		log.error("Unable to select value from dropdown.", e);
     	}
     }
    	
@@ -107,7 +108,7 @@ public class CommonActionsUtil {
      * @param valueToBeChosen
      * @param element
      */
-    public static void selectOptionOnDropdown(WebDriverWrapper driverWrapper, WebElement webElement, String valueToBeChosen) {
+    public static boolean selectOptionOnDropdown(WebDriverWrapper driverWrapper, WebElement webElement, String valueToBeChosen) {
         log.entry();
         log.info("Select : {}", valueToBeChosen);
         String value;
@@ -122,7 +123,7 @@ public class CommonActionsUtil {
         			driverWrapper.embedScreenshotWithHighlight(webElement);
         			log.info("{} is selected", valueToBeChosen);
         			log.exit();
-        			return;
+        			return true;
         		}
         	}
         } catch (Exception e) {
@@ -130,6 +131,7 @@ public class CommonActionsUtil {
         	embedScreenshotOnError(driverWrapper, webElement, e);
         	log.exit();
         }
+        return false;
 
     }
     
@@ -141,13 +143,13 @@ public class CommonActionsUtil {
 	 */
 	public static boolean isFieldValueExact(WebDriverWrapper driverWrapper, WebElement webElement, String expectedValue) {
 		log.entry();
-		log.info("Verify the value");
+		log.info("Verifying Text");
 		try {
 			String actual = webElement.getText();
 			log.info("Expected {}", expectedValue);
 			log.info("Actual {}", actual);
+			driverWrapper.embedScreenshotWithHighlight(webElement);
 			if (actual.equalsIgnoreCase(expectedValue)) {
-				driverWrapper.embedScreenshotWithHighlight(webElement);
 				log.info("{} matches the expected {} value.", actual, expectedValue);
 				return true;
 			} else {
@@ -155,7 +157,8 @@ public class CommonActionsUtil {
 				return false;
 			}
 		} catch (Exception e) {
-			embedScreenshotOnError(driverWrapper, webElement, e);
+			log.info("Unable to verify text: ", e);
+   			driverWrapper.embedScreenshotWithHighlight(null);
 		}
 		return false;
 	}
@@ -166,7 +169,7 @@ public class CommonActionsUtil {
 	 * @param webElement - String value of text field where search will be entered.
 	 * @param driverWrapper
 	 */
-	public static void inputValueInField(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
+	public static boolean inputValueInField(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
 		log.entry();
 		try {
 			//input text in the text field specified 
@@ -176,14 +179,18 @@ public class CommonActionsUtil {
 					log.info("Enter [{}] in field", inputValue);
 					webElement.sendKeys(inputValue);
 					driverWrapper.embedScreenshotWithHighlight(webElement);
+					return true;
 				} else {
 					log.error("Field is Disabled");
+					return false;
 				}
 			} else {
 				log.error("Unable to locate field element");
+				return false;
 			}
 		} catch (Exception e) {
 			embedScreenshotOnError(driverWrapper, webElement, e);
+			return false;
 		}
 	}
 	
@@ -192,7 +199,7 @@ public class CommonActionsUtil {
    	 * @param driverWrapper - driver wrapper
    	 * @param target element to be clicked
    	 */
-   	public static void tickCheckbox(WebDriverWrapper driverWrapper, WebElement webElement) {
+   	public static boolean tickCheckbox(WebDriverWrapper driverWrapper, WebElement webElement) {
    		try {
    			if (driverWrapper.isElementPresent(webElement)) {
    				webElement.click();
@@ -200,14 +207,18 @@ public class CommonActionsUtil {
    				if (webElement.isSelected()) {
    					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Checkbox is selected");
+   					return true;
    				} else {
    					log.error("Checkbox is not selected");
+   					return false;
    				}
    			} else {
    				log.warn("Checkbox not found");
+   				return false;
    			}
    		} catch (Exception e) {
    			embedScreenshotOnError(driverWrapper, webElement, e);
+   			return false;
    		}
    	}
    	
@@ -216,7 +227,7 @@ public class CommonActionsUtil {
    	 * @param driverWrapper - driver wrapper
    	 * @param target element to be clicked
    	 */
-   	public static void selectRadioButton(WebDriverWrapper driverWrapper, WebElement webElement) {
+   	public static boolean selectRadioButton(WebDriverWrapper driverWrapper, WebElement webElement) {
    		try {
    			if (driverWrapper.isElementPresent(webElement)) {
    				log.debug("Select Radio button");
@@ -225,14 +236,18 @@ public class CommonActionsUtil {
    				if (webElement.isEnabled() || webElement.isSelected()) {
    					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Radio Button is selected.");
+   					return true;
    				} else {
    					log.error("Radio button is not selected");
+   					return false;
    				}
    			} else {
    				log.warn("Radio button is not found");
+   				return false;
    			}
    		} catch (Exception e) {
    			embedScreenshotOnError(driverWrapper, webElement, e);
+   			return false;
    		}
    	}
    	
@@ -242,21 +257,25 @@ public class CommonActionsUtil {
    	 * @param webElement element to be clicked
    	 * @param inputValue
    	 */
-   	public static void getAltText(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
+   	public static boolean getAltText(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
    		try {
    			if(driverWrapper.isElementPresent(webElement)) {
    				String altText = webElement.getAttribute("alt");
    				if(altText.equalsIgnoreCase(inputValue)) {
    					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Image found.");
+   					return true;
    				}else {
    					log.error("Image not found.");
+   					return false;
    				}
    			}else {
    				log.error("Element not found.");
+   				return false;
    			}
    		} catch (Exception e) {
    			embedScreenshotOnError(driverWrapper, webElement, e);
+   			return false;
    		}
    	}
    	
@@ -266,21 +285,26 @@ public class CommonActionsUtil {
    	 * @param webElement element to be clicked
    	 * @param inputValue
    	 */
-   	public static void getValueText(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
+   	public static boolean getValueText(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
    		try {
    			if(driverWrapper.isElementPresent(webElement)) {
    				String altText = webElement.getAttribute("value");
    				if(altText.equalsIgnoreCase(inputValue)) {
    					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Text found.");
+   					return true;
    				}else {
    					log.error("Text not found.");
+   					return false;
    				}
    			}else {
    				log.error("Element not found.");
+   				return false;
    			}
    		} catch (Exception e) {
-   			embedScreenshotOnError(driverWrapper, webElement, e);
+   			log.info("Unable to verify text: ", e);
+   			driverWrapper.embedScreenshotWithHighlight(null);
+   			return false;
    		}
    	}
    	
@@ -290,7 +314,7 @@ public class CommonActionsUtil {
    	 * @param webElement
    	 */
    	private static void embedScreenshotOnError(WebDriverWrapper driverWrapper, WebElement webElement, Exception e) {
+   		log.info("Unable to Complete Action: ", e);
    		driverWrapper.embedScreenshotWithHighlight(webElement);
-   		log.error("Unable to Complete Action: ", e);
    	}
 }

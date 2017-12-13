@@ -270,21 +270,33 @@ public class WebDriverWrapper {
 	}
 	
 	/**
-     * Embed screenshot with multiple highlight to the html report
+     * Embed screenshot with highlight to the HTML report
      * @param scenario
      * @return String
      */
 	public void embedScreenshotWithHighlight(WebElement element) {
+		if (element!=null) {
+			highlightElement(element);
+			takeScreenshot();
+			removeHighlightedElement(element);
+		} else {
+			takeScreenshot();
+		}
+		log.debug("Generating Screenshot");
+	}
+	
+	/**
+	 * Takes a screen shot of the current window
+	 */
+	private void takeScreenshot() {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		String outPath = System.getProperty("user.dir") + "\\target\\screenshots\\" + scenario.getId().split(";")[0] + "\\" + scenario.getName().replaceAll("\\s", "_") + "_" + timeStamp + ".png";
 		try {
-			highlightElement(element);
 			File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scrFile, new File(outPath).getAbsoluteFile());
 			Reporter.addScreenCaptureFromPath(outPath);
-			removeHighlightedElement(element);
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
+		} catch (Exception e) {
+			log.error("Something went wrong {}", e);
+		}
 	}
 }

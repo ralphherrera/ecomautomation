@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.equalTo;
 
 import com.cukes.bean.Gherkin;
 import com.cukes.bean.Step;
@@ -36,7 +39,9 @@ public class PerformAction extends BasePage{
 				element = getWebElement(step.getLocatorString(), step.getLocatorType());
 			}
 			log.info("Executing Step #: {} : {}", step.getNumber(), action);
-			CommonActionsUtil.executeAction(action, driverWrapper, element, inputValue);
+			Assert.assertThat("Is " + step.getAction() + " successful? ",
+					CommonActionsUtil.executeAction(action, driverWrapper, element, inputValue),
+					is(equalTo(true)));
 
 		}
 		log.exit();
@@ -51,15 +56,19 @@ public class PerformAction extends BasePage{
 	private WebElement getWebElement(String locatorString, String locatorType) {
 		log.entry();
 		WebElement element = null;
-		if (!(locatorString == null && locatorType == null)) {
-			String locType = locatorType.toLowerCase();
-			switch(locType) {
-			case "id" : return driver.findElement(By.id(locatorString));
-			case "name" : return driver.findElement(By.name(locatorString));
-			case "css" : return driver.findElement(By.cssSelector(locatorString));
-			case "xpath" : return driver.findElement(By.xpath(locatorString));
-			}
-		} 
+		try {
+			if (!(locatorString == null && locatorType == null)) {
+				String locType = locatorType.toLowerCase();
+				switch(locType) {
+				case "id" : return driver.findElement(By.id(locatorString));
+				case "name" : return driver.findElement(By.name(locatorString));
+				case "css" : return driver.findElement(By.cssSelector(locatorString));
+				case "xpath" : return driver.findElement(By.xpath(locatorString));
+				}
+			} 
+		} catch (Exception e) {
+			log.error("Unable to find element");
+		}
 		log.exit();
 		return element;
 	}
@@ -88,11 +97,15 @@ public class PerformAction extends BasePage{
 	private List<WebElement> getWebElementList(String locatorString, String locatorType) {
 		log.entry();
 		String locType = locatorType.toLowerCase();
-		switch(locType) {
-		case "id" : return driver.findElements(By.id(locatorString));
-		case "name" : return driver.findElements(By.name(locatorString));
-		case "css" : return driver.findElements(By.cssSelector(locatorString));
-		case "xpath" : return driver.findElements(By.xpath(locatorString));
+		try {
+			switch(locType) {
+			case "id" : return driver.findElements(By.id(locatorString));
+			case "name" : return driver.findElements(By.name(locatorString));
+			case "css" : return driver.findElements(By.cssSelector(locatorString));
+			case "xpath" : return driver.findElements(By.xpath(locatorString));
+			}
+		} catch (Exception e) {
+			log.error("Unable to find element");
 		}
 		log.exit();
 		return null;
