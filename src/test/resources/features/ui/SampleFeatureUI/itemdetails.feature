@@ -1,4 +1,4 @@
-@SampleFeatureUI @samplesearch @web
+@SampleFeatureUI @samplesearch @web @config
 Feature: Display Related Items in the search results page
   As a User
   I should be able to search for an item

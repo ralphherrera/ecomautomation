@@ -164,7 +164,7 @@
 							<filterFeaturesByTags>true</filterFeaturesByTags>
 							<namingScheme>simple</namingScheme>
 							<namingPattern>{f}_Parallel{c}IT</namingPattern>
-							<parallelScheme>SCENARIO</parallelScheme>
+							<parallelScheme>FEATURE</parallelScheme>
 						</configuration>
 					</execution>
 				</executions>

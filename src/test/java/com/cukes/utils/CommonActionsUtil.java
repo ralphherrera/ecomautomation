@@ -149,7 +149,7 @@ public class CommonActionsUtil {
 			log.info("Expected {}", expectedValue);
 			log.info("Actual {}", actual);
 			driverWrapper.embedScreenshotWithHighlight(webElement);
-			if (actual.equalsIgnoreCase(expectedValue)) {
+			if (containsIgnoreCase(driverWrapper, actual, expectedValue)) {
 				log.info("{} matches the expected {} value.", actual, expectedValue);
 				return true;
 			} else {
@@ -261,7 +261,7 @@ public class CommonActionsUtil {
    		try {
    			if(driverWrapper.isElementPresent(webElement)) {
    				String altText = webElement.getAttribute("alt");
-   				if(altText.equalsIgnoreCase(inputValue)) {
+   				if(containsIgnoreCase(driverWrapper, altText, inputValue)) {
    					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Image found.");
    					return true;
@@ -288,8 +288,8 @@ public class CommonActionsUtil {
    	public static boolean getValueText(WebDriverWrapper driverWrapper, WebElement webElement, String inputValue) {
    		try {
    			if(driverWrapper.isElementPresent(webElement)) {
-   				String altText = webElement.getAttribute("value");
-   				if(altText.equalsIgnoreCase(inputValue)) {
+   				String valueText = webElement.getAttribute("value");
+   				if(containsIgnoreCase(driverWrapper, valueText, inputValue)) {
    					driverWrapper.embedScreenshotWithHighlight(webElement);
    					log.debug("Text found.");
    					return true;
@@ -317,4 +317,31 @@ public class CommonActionsUtil {
    		log.info("Unable to Complete Action: ", e);
    		driverWrapper.embedScreenshotWithHighlight(webElement);
    	}
+   	
+   	/**
+   	 * Compare strings if the first value contains second value
+   	 * @param driverWrapper
+   	 * @param actualValue
+   	 * @param inputValue
+   	 * @return
+   	 */
+   	private static boolean containsIgnoreCase(WebDriverWrapper driverWrapper, String actualValue, String inputValue) {
+   		log.entry();
+   		try {
+			String actualValueLowerCase = actualValue.toLowerCase().replaceAll("[^\\w\\d]", "");
+			String inputValueLowerCase = inputValue.toLowerCase().replaceAll("[^\\w\\d]", "");
+			
+			if(inputValueLowerCase.contains(actualValueLowerCase)) {
+				log.info("{} matches the expected {} value.", actualValueLowerCase, inputValueLowerCase);
+				return true;
+			} else {
+				log.info("{} value is NOT equal to the expected {} value.", actualValueLowerCase, inputValueLowerCase);
+				return false;
+			}
+		} catch (Exception e) {
+			log.info("Unable to verify text: ", e);
+		}
+   		return false;
+   	}
+
 }
