@@ -151,7 +151,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -207,7 +207,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -263,7 +263,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -319,7 +319,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -375,7 +375,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -431,7 +431,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -487,7 +487,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -543,7 +543,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -599,7 +599,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -655,7 +655,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -711,7 +711,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -767,7 +767,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -823,7 +823,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
@@ -879,7 +879,7 @@
 						},
 						{
 							"number": 2,
-							"action": "getAttribute",
+							"action": "getAltText",
 							"locatorString": "//img[@class='l-logo__image']",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
