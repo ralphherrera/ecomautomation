@@ -1,0 +1,896 @@
+{
+	"testScenarios": [
+		{
+			"name": "User Registration",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "And I navigate on Account Creation Page",
+					"steps": [
+						{
+							"number": 1,
+							"action": "click",
+							"locatorString": "nav-link-accountList",
+							"locatorType": "id",
+							"inputValue": null
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "createAccountSubmit",
+							"locatorType": "id",
+							"inputValue": null
+						},
+						{
+							"number": 3,
+							"action": "findText",
+							"locatorString": "//div[@class='a-box-inner']//h1[@class='a-spacing-small']",
+							"locatorType": "xpath",
+							"inputValue": "Create account"
+						}
+					]
+				},
+				{
+					"name": "When I fill up the account creation form",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ap_customer_name",
+							"locatorType": "id",
+							"inputValue": "Ralph"
+						},
+						{
+							"number": 2,
+							"action": "sendKeys",
+							"locatorString": "ap_email",
+							"locatorType": "id",
+							"inputValue": "ralph@mail.com"
+						},
+						{
+							"number": 3,
+							"action": "sendKeys",
+							"locatorString": "ap_password",
+							"locatorType": "id",
+							"inputValue": "ralphralph123"
+						},
+						{
+							"number": 4,
+							"action": "sendKeys",
+							"locatorString": "ap_password_check",
+							"locatorType": "id",
+							"inputValue": "ralphralph123"
+						}
+					]
+				},
+				{
+					"name": "And I submit the account creation form",
+					"steps": [
+						{
+							"number": 1,
+							"action": "click",
+							"locatorString": "continue",
+							"locatorType": "id",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see the account is logged in",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//a[@id='nav-link-accountList']//span[@class='nav-line-1']",
+							"locatorType": "xpath",
+							"inputValue": "Hello, "
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "View related search results for keyword",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "bag"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "bag"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to search for a product",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "bag"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "bag"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify System shows an error message if a product is not found",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "bag"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "bag"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to successfully create an account",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "bag"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "bag"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is unable to create an account when email used is already taken",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "pants"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "pants"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is unable to create an account when a required field is left blank",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "dress"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "dress"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User receives an email after successful registration",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "shoes"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "shoes"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to login after successfully creating an account",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "shoes"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "shoes"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to add items to cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "shoes"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "shoes"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to remove items from cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "shoes"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "shoes"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to update item quantity in cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "shoes"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "shoes"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to check item details for items in cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "blouse"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "blouse"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to apply promos in cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "shorts"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorType": "xpath",
+							"inputValue": "shorts"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to select product variant for an item",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.amazon.com"
+						},
+						{
+							"number": 2,
+							"action": "findText",
+							"locatorString": "//div[@id='nav-logo']//a//span[@class='nav-logo-base nav-sprite']",
+							"locatorType": "xpath",
+							"inputValue": "Amazon"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "twotabsearchtextbox",
+							"locatorType": "id",
+							"inputValue": "phone"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "input[type='submit']",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "h1[id='s-result-count'] span[id='a-color-state a-text-bold']",
+							"locatorType": "css",
+							"inputValue": "phone"
+						}
+					]
+				}
+			],
+			"execute": true
+		}
+	]
+}

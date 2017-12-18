@@ -1,0 +1,910 @@
+{
+	"testScenarios": [
+		{
+			"name": "User Registration",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "And I navigate on Account Creation Page",
+					"steps": [
+						{
+							"number": 1,
+							"action": "click",
+							"locatorString": "ctl23_hlSignInLink",
+							"locatorType": "id",
+							"inputValue": null
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "content_0_ctlLoginForm_btnCreateAccount",
+							"locatorType": "id",
+							"inputValue": null
+						},
+						{
+							"number": 3,
+							"action": "findText",
+							"locatorString": "//div[@id='content']//h1",
+							"locatorType": "xpath",
+							"inputValue": "Create a New Account"
+						}
+					]
+				},
+				{
+					"name": "When I fill up the account creation form",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "txtFirstName",
+							"locatorType": "id",
+							"inputValue": "Ralph"
+						},
+						{
+							"number": 2,
+							"action": "sendKeys",
+							"locatorString": "txtLastName",
+							"locatorType": "id",
+							"inputValue": "Herrera"
+						},
+						{
+							"number": 3,
+							"action": "sendKeys",
+							"locatorString": "txtEmail",
+							"locatorType": "id",
+							"inputValue": "ralph@mail.com"
+						},
+						{
+							"number": 4,
+							"action": "sendKeys",
+							"locatorString": "txtPassword1",
+							"locatorType": "id",
+							"inputValue": "ralphralph123"
+						},
+						{
+							"number": 5,
+							"action": "sendKeys",
+							"locatorString": "txtPassword2",
+							"locatorType": "id",
+							"inputValue": "ralphralph123"
+						}
+					]
+				},
+				{
+					"name": "And I submit the account creation form",
+					"steps": [
+						{
+							"number": 1,
+							"action": "click",
+							"locatorString": "content_0_ctlNewAccountForm_btnCreateAccount",
+							"locatorType": "id",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see the account is logged in",
+					"steps": [
+						{
+							"number": 1,
+							"action": "click",
+							"locatorString": "//a[text()='Sign-in Information']",
+							"locatorType": "xpath",
+							"inputValue": null
+						},
+						{
+							"number": 2,
+							"action": "getValueText",
+							"locatorString": "txtEmail",
+							"locatorType": "id",
+							"inputValue": "TestRalfDaniel@gmail.com"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "View related search results for keyword",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to search for a product",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify System shows an error message if a product is not found",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to successfully create an account",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is unable to create an account when email used is already taken",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is unable to create an account when a required field is left blank",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User receives an email after successful registration",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to login after successfully creating an account",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to add items to cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to remove items from cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to update item quantity in cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "ballpoint"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: ballpoint"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to check item details for items in cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "refills"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: refills"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to apply promos in cart",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "fountain"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "span[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "xpath",
+							"inputValue": "Search: fountain"
+						}
+					]
+				}
+			],
+			"execute": true
+		},
+		{
+			"name": "Verify User is able to select product variant for an item",
+			"gherkins": [
+				{
+					"name": "Given I am in the website homepage",
+					"steps": [
+						{
+							"number": 1,
+							"action": "navigateToPage",
+							"locatorString": null,
+							"locatorType": null,
+							"inputValue": "https://www.cross.com"
+						},
+						{
+							"number": 2,
+							"action": "getAltText",
+							"locatorString": "ctl23_ctl17_fullSizeLogo",
+							"locatorType": "id",
+							"inputValue": "Cross.com Home"
+						}
+					]
+				},
+				{
+					"name": "When I searched for an item",
+					"steps": [
+						{
+							"number": 1,
+							"action": "sendKeys",
+							"locatorString": "ctl23_ctl18_txtSearch",
+							"locatorType": "id",
+							"inputValue": "rollerball"
+						},
+						{
+							"number": 2,
+							"action": "click",
+							"locatorString": "div[class='no-mobile'] label",
+							"locatorType": "css",
+							"inputValue": null
+						}
+					]
+				},
+				{
+					"name": "Then I should see relevant items displayed",
+					"steps": [
+						{
+							"number": 1,
+							"action": "findText",
+							"locatorString": "//h1[@id='content_0_ctl00_ctl00_heading']",
+							"locatorType": "css",
+							"inputValue": "Search: rollerball"
+						}
+					]
+				}
+			],
+			"execute": true
+		}
+	]
+}
