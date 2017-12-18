@@ -51,7 +51,6 @@ public class CommonActionsUtil {
 		log.entry();
 		try {
 			driverWrapper.getUrl(url);
-			driverWrapper.embedScreenshotWithHighlight(null);
 			return true;
 		} catch (Exception e) {
 			log.error ("Unable to navigate to url: ", e);
@@ -332,7 +331,7 @@ public class CommonActionsUtil {
 			String actualValueLowerCase = actualValue.toLowerCase().replaceAll("[^\\w\\d]", "");
 			String inputValueLowerCase = inputValue.toLowerCase().replaceAll("[^\\w\\d]", "");
 			
-			if(inputValueLowerCase.contains(actualValueLowerCase)) {
+			if(actualValueLowerCase.contains(inputValueLowerCase)) {
 				log.info("{} matches the expected {} value.", actualValueLowerCase, inputValueLowerCase);
 				return true;
 			} else {
