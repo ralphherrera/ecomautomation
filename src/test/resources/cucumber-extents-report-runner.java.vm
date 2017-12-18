@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 
 import com.cukes.advancedreport.ExtentProperties;
 import com.cukes.advancedreport.Reporter;
+import com.cukes.utils.PropertyUtil;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -40,7 +41,7 @@ public class $className {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		String formatDateTime = localDateTime.format(formatter);
 		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-		extentProperties.setProjectName("Test2");
+		extentProperties.setProjectName(PropertyUtil.getConfigProp("project.name"));
 		extentProperties.setReportName(featureName + " " + formatDateTime);
 		extentProperties.setExtentXServerUrl("http://172.16.220.108:1337");
 	}
