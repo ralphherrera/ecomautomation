@@ -16,7 +16,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -28,7 +28,7 @@
 						{
 							"number": 1,
 							"action": "click",
-							"locatorString": "//div[@data-qa-locator='header-signup']//a",
+							"locatorString": "//a[@title='Signup']",
 							"locatorType": "xpath",
 							"inputValue": null
 						},
@@ -152,7 +152,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -164,14 +164,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -183,7 +183,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -208,7 +208,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -220,14 +220,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -239,7 +239,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -264,7 +264,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -276,14 +276,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -295,7 +295,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -320,7 +320,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -332,14 +332,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -351,7 +351,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -376,7 +376,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -388,14 +388,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -407,7 +407,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -432,7 +432,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -444,14 +444,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -463,7 +463,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -488,7 +488,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -500,14 +500,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -519,7 +519,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -544,7 +544,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -556,14 +556,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -575,7 +575,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -600,7 +600,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -612,14 +612,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -631,7 +631,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -656,7 +656,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -668,14 +668,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -687,7 +687,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -712,7 +712,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -724,14 +724,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -743,7 +743,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -768,7 +768,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -780,14 +780,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -799,7 +799,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -824,7 +824,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -836,14 +836,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -855,7 +855,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -880,7 +880,7 @@
 						{
 							"number": 2,
 							"action": "getAltText",
-							"locatorString": "//img[@class='l-logo__image']",
+							"locatorString": "//div[@class='lzd-logo-content']//img",
 							"locatorType": "xpath",
 							"inputValue": "Online Shopping Lazada.com.ph Philippines Logo"
 						}
@@ -892,14 +892,14 @@
 						{
 							"number": 1,
 							"action": "sendKeys",
-							"locatorString": "div[class='l-header-search__input-group-input'] input[class='l-header-search__input-group-textbox l-header-search__input-group-textbox_search']",
+							"locatorString": "div[class='search-box__bar--29h6'] input[type='search']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						},
 						{
 							"number": 2,
 							"action": "click",
-							"locatorString": "div[class='l-header-search__input-group-button-container'] button[data-qa-locator='header-search-button']",
+							"locatorString": "div[class='search-box__search--2fC5'] button[class='search-box__button--1oH7']",
 							"locatorType": "css",
 							"inputValue": null
 						}
@@ -911,7 +911,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "div[class='c-catalog-title c-catalog-title_mid'] h1[class='c-catalog-title__title']",
+							"locatorString": "div[class=' c1DXz4']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
