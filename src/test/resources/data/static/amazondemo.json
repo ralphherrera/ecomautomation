@@ -211,7 +211,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -267,7 +267,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -323,7 +323,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
@@ -379,7 +379,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "pants"
 						}
@@ -435,7 +435,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "dress"
 						}
@@ -491,7 +491,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "shoes"
 						}
@@ -547,7 +547,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "shoes"
 						}
@@ -603,7 +603,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "shoes"
 						}
@@ -659,7 +659,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "shoes"
 						}
@@ -715,7 +715,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "shoes"
 						}
@@ -771,7 +771,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "blouse"
 						}
@@ -827,7 +827,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "shorts"
 						}
@@ -883,7 +883,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "phone"
 						}
