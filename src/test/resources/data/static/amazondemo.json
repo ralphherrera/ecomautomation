@@ -155,7 +155,7 @@
 						{
 							"number": 1,
 							"action": "findText",
-							"locatorString": "h1[id='s-result-count'] span[class='a-color-state a-text-bold']",
+							"locatorString": "span[class='a-color-state a-text-bold']",
 							"locatorType": "css",
 							"inputValue": "bag"
 						}
