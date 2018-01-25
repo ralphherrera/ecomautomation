@@ -25,6 +25,7 @@ import java.time.format.DateTimeFormatter;
         features = {"$featureFile"},
         plugin = #stringArray($plugins),
         monochrome = $monochrome,
+		format = {"json:target/cucumber.json"},
         
 #if(!$featureFile.contains(".feature:") && $tags)
         tags = #stringArray($tags),
